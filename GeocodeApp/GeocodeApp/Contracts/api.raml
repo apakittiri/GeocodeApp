@@ -1,0 +1,120 @@
+#%RAML 0.8
+baseUri: http://mocksvc.mulesoft.com/mocks/a1620f02-0378-490a-aa7e-6c422350defc
+title: GeocodeApp
+version: 1.0
+schemas:
+ - location: !include includes\location.schema
+ - weather: !include includes\weather.schema
+traits:
+  - client-id-required:
+      headers:
+        client_id:
+          type: string
+          required: true
+        client_secret:
+          type: string
+          required: true
+/location:
+  description: Location APIs. Finding geocode points or address
+  /{id}:
+    get:
+      is: [client-id-required]
+      description: Get address with geocode points using Id
+      responses:
+        200:
+          body:
+            application/json:
+              schema: location
+    /weather:
+      description: Get current weather amd the forcast
+      /current:
+        get:
+          is: [client-id-required]
+          description: Get current weather for the location
+          responses:
+            200:
+              body:
+                application/json:
+                  schema: weather
+      /forcast:
+        get:
+          is: [client-id-required]
+          description: Get current weather for the location
+          responses:
+            200:
+              body:
+                application/json:
+                  schema: weather
+  /address/{country}/{statecode}/{postalcode}/{city}/{streetaddress}:
+    get:
+      description: Get location by address
+      responses:
+        200:
+          body:
+            application/json:
+              schema: location
+  /points/{latitude}/{longitude}:
+    get:
+      is: [client-id-required]
+      description: Get location by points
+      responses:
+        200:
+          body:
+            application/json:
+              schema: location
+/weather:
+  description: Get weather information
+  /{latitude}/{longitude}:
+    get:
+      is: [client-id-required]
+      description: Get weather information by gecode points(latitude & longitude)
+      responses:
+        200:
+          body:
+            application/json:
+              schema: weather
+    /forcast:
+      get:
+        is: [client-id-required]
+        description: Get weather information by gecode points(latitude & longitude)
+        responses:
+          200:
+            body:
+              application/json:
+                schema: weather
+    /history:
+      get:
+        is: [client-id-required]
+        description: Get weather information by gecode points(latitude & longitude)
+        responses:
+          200:
+            body:
+              application/json:
+                schema: weather
+  /{postalcode}:
+    get:
+      is: [client-id-required]
+      description: Get weather information by postalcode
+      responses:
+        200:
+          body:
+            application/json:
+              schema: weather
+    /forcast:
+      get:
+        is: [client-id-required]
+        description: Get weather information by gecode points(latitude & longitude)
+        responses:
+          200:
+            body:
+              application/json:
+                schema: weather
+    /history:
+      get:
+        is: [client-id-required]
+        description: Get weather information by gecode points(latitude & longitude)
+        responses:
+          200:
+            body:
+              application/json:
+                schema: weather
