@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/hyper-schema",
+  "properties": 
+    {
+      "id": {
+        "title": "Weather condition identifier",
+        "type": "number"
+      },
+      "main": {
+        "title": "Group of weather parameters (Rain, Snow, Extreme etc.)",
+        "type": "string"
+      },
+      "description": {
+        "title": "Weather condition within the group",
+        "type": "string"
+      },
+      "dt": {
+        "title": "Date",
+        "type": "string"
+      },
+      "current": {
+        "title": "Current weather information. This will be null for history and forcast",
+        "type": "object",
+        "temp": {
+          "title": "Current temperature",
+          "type": "number"
+        },
+        "humidity": {
+          "title": "Current humidity in %",
+          "type": "number"
+        },
+        "pressure": {
+          "title": "Atmospheric pressure",
+          "type": "number"
+        }
+      },
+      "daily": {
+        "title": "Daily weather forcast.",
+        "type": "object",
+        "day": {
+          "title": "Daily averaged temperature",
+          "type": "number"
+        },
+        "min": {
+          "title": "Daily minimum temperature",
+          "type": "number"
+        },
+        "max": {
+          "title": "Daily maximum temperature",
+          "type": "number"
+        },
+         "night": {
+          "title": "Night temperature",
+          "type": "number"
+        }
+      }
+    },
+    "links": 
+    [
+      {
+        "rel": "pointForcast",
+        "href": "/{latitude}/{longitude}/forcast"
+      },
+      {
+        "rel": "pointHistory",
+        "href": "/{latitude}/{longitude}/history"
+      },
+      {
+        "rel": "postalcodeForcast",
+        "href": "/{postalcode}/forcast"
+      },
+      {
+        "rel": "postalcodeHistory",
+        "href": "/{postalcode}/history"
+      }
+    ]
+}
