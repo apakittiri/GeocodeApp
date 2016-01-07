@@ -1,0 +1,61 @@
+                {
+                  "type": "object",
+                  "$schema": "http://json-schema.org/hyper-schema",
+                    "properties": {
+                        "id": {
+                            "title": "Location Identifier",
+                            "type": "number"
+                        },
+                        "address": {
+                            "title": "Location Address",
+                            "type": "object",
+                            "addressline": {
+                                    "title": "Address Line(street address)",
+                                    "type": "string"},
+                            "city": {
+                                    "title": "City",
+                                    "type": "string"},
+                            "postalcode": {
+                                    "title": "Postal Code",
+                                    "type": "string"},
+                            "state": {
+                                    "title": "State Code",
+                                    "type": "string"},
+                            "country": {
+                                    "title": "Country Code",
+                                    "type": "string"}
+                        },
+                        "geocodePoints": {
+                              "title": "Location geocode points(latitude, longitude)",
+                              "type": "object",
+                              "latitude": {
+                                    "title": "Latitude",
+                                    "type": "double"},
+                              "longitude": {
+                                    "title": "Longitude",
+                                    "type": "double"}
+                        }
+                    },
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "{id}"
+                        },
+                        {
+                            "rel": "GetByAddress",
+                            "href": "/address/{country}/{statecode}/{postalcode}/{city}/{streetaddress}"
+                        },
+                        {
+                            "rel": "GetByPoints",
+                            "href": "/points/{latitude}/{longitude}"
+                        },
+                        {
+                            "rel": "CurrentWeather",
+                            "href": "{id}/weather/current"
+                        },
+                        {
+                            "rel": "WeatherForcast",
+                            "href": "{id}/weather/forcast"
+                        }
+                    ]
+                }
