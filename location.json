@@ -1,0 +1,36 @@
+{
+	"id": "1",
+	"address":{
+		"addressline"; "123 Street",
+		"city": "Jacksonville",
+        "postalcode": "32202",
+        "state": "FL",
+        "country": "US"
+	},
+	"geocodePoints": {
+        "latitude": "123",
+        "longitude": "345"
+    },
+	"links": [
+        {
+            "rel": "self",
+            "href": "1"
+        },
+        {
+            "rel": "GetByAddress",
+            "href": "/address/US/FL/32202/Jacksonville/123 Street"
+        },
+        {
+            "rel": "GetByPoints",
+            "href": "/points/123/345"
+        },
+        {
+            "rel": "CurrentWeather",
+            "href": "1/weather/current"
+        },
+		{
+            "rel": "WeatherForcast",
+            "href": "1/weather/forcast"
+        }
+    ]
+}
