@@ -1,0 +1,36 @@
+{
+	"id": "1",
+	"main": "Wind",
+    "description": "Wind Southeast"
+    "dt": "01/01/2016",
+    "current": {
+        "temp": "60",
+        "humidity": "80",
+        "pressure": "70"
+      },
+    "daily": {
+		"day": "60",
+        "min": "51",
+        "max": "67",
+        "night": "50"
+    },
+    "links": 
+    [
+      {
+        "rel": "pointForcast",
+        "href": "/123/345}/forcast"
+      },
+      {
+        "rel": "pointHistory",
+        "href": "/123/345/history"
+      },
+      {
+        "rel": "postalcodeForcast",
+        "href": "/32202/forcast"
+      },
+      {
+        "rel": "postalcodeHistory",
+        "href": "/32202}/history"
+      }
+    ]
+}
